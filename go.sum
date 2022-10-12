@@ -341,6 +341,7 @@ k8s.io/kube-controller-manager v0.0.0-20190620085942-b7f18460b210/go.mod h1:FoQC
 k8s.io/kube-openapi v0.0.0-20190228160746-b3a7cee44a30/go.mod h1:BXM9ceUBTj2QnfH2MK1odQs778ajze1RxcmP6S8RVVc=
 k8s.io/kube-proxy v0.0.0-20190620085809-589f994ddf7f/go.mod h1:EP2frUhhC4rizGpCTYCnVS4+XZMh7Hyq40jOUvuAK5g=
 k8s.io/kube-scheduler v0.0.0-20190620085912-4acac5405ec6/go.mod h1:ktfBNqjRdtYUw2eFNk32TtxiGqOy00eiWua74iNEcLg=
+k8s.io/kubelet v0.0.0-20190620085838-f1cb295a73c9 h1:LpRVfoZzaGmCMSWRY5y2OAL9SCZh6MWRPbb13InJt8o=
 k8s.io/kubelet v0.0.0-20190620085838-f1cb295a73c9/go.mod h1:2gRsvblRTyHIsBazBlnqeAWkWRtnUq6cBnrfdPFr9iY=
 k8s.io/kubernetes v1.15.5 h1:joGHGmNjm75F8LkJmflKxaYTHWNwodNp+aN/uAgCNp0=
 k8s.io/kubernetes v1.15.5/go.mod h1:Kyu5t/D1Dx5GSj78bquQyN20G5xKZ9BYrtFT4fA9kXU=

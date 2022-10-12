@@ -31,5 +31,6 @@ require (
 	github.com/sirupsen/logrus v1.2.0
 	google.golang.org/grpc v1.28.0
 	gopkg.in/fsnotify.v1 v1.4.7
+	k8s.io/kubelet v0.25.2 // indirect
 	k8s.io/kubernetes v1.15.5
 )

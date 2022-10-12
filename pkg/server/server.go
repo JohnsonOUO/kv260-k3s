@@ -195,10 +195,24 @@ func (s *ColaServer) Allocate(ctx context.Context, reqs *pluginapi.AllocateReque
 	resps := &pluginapi.AllocateResponse{}
 	for _, req := range reqs.ContainerRequests {
 		log.Infof("received request: %v", strings.Join(req.DevicesIDs, ","))
+		ds := make([]*pluginapi.DeviceSpec, 1)
+		ds[0] = &pluginapi.DeviceSpec{
+			HostPath: "/dev/dri/card0",
+			ContainerPath: "/dev/dri/card0",
+			Permissions: "rwm",
+		}
+		mt := make([]*pluginapi.Mount, 1)
+		mt[0] = &pluginapi.Mount{
+			HostPath: "/dev/dri/card0",
+			ContainerPath: "/dev/dri/card0",
+			ReadOnly: false,
+		}
 		resp := pluginapi.ContainerAllocateResponse{
 			Envs: map[string]string{
 				"COLA_DEVICES": strings.Join(req.DevicesIDs, ","),
 			},
+			Mounts: mt,
+			Devices: ds,
 		}
 		resps.ContainerResponses = append(resps.ContainerResponses, &resp)
 	}
