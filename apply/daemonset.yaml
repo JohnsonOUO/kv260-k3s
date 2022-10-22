@@ -24,7 +24,7 @@ spec:
         app.kubernetes.io/instance: cola
         app.kubernetes.io/name: cola
     spec:
-      imagePullSecrets: {}
+      imagePullSecrets: []
       serviceAccountName: cola-admin
       securityContext: {}
       containers:
