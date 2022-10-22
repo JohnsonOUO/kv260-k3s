@@ -42,11 +42,11 @@ spec:
         cola-device: enable
       affinity: {}
       tolerations:
-        - key: CriticalAddonsOnly
+      - key: CriticalAddonsOnly
         operator: Exists
-        - key: myway5.com/cola
-          operator: Exists
-           effect: NoSchedule
+      - key: myway5.com/cola
+        operator: Exists
+        effect: NoSchedule
       # Mark this pod as a critical add-on; when enabled, the critical add-on
       # scheduler reserves resources for critical add-on pods so that they can
       # be rescheduled after a failure.
