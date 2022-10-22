@@ -1,6 +1,6 @@
 IMAGE_VERSION = latest
 REGISTRY = docker.io/chriskewis
-IMAGE = ${REGISTRY}/kv260-device-plugin:${IMAGE_VERSION}
+IMAGE = ${REGISTRY}/kv260-device-plugin:arm64
 
 .PHONY: build deploy
 

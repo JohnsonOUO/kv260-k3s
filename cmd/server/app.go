@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-	log.Info("cola device plugin starting")
+	log.Info("kv260 device plugin starting")
 	colaSrv := server.NewColaServer()
 	go colaSrv.Run()
 

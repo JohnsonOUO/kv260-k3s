@@ -5,8 +5,8 @@
 replicaCount: 1
 
 image:
-  repository: joyme/cola-device-plugin
-  pullPolicy: IfNotPresent
+  repository: chriskewis/kv260-device-plugin
+  pullPolicy: Always
 
 imagePullSecrets: []
 nameOverride: ""

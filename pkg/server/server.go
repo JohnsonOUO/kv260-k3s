@@ -208,9 +208,6 @@ func (s *ColaServer) Allocate(ctx context.Context, reqs *pluginapi.AllocateReque
 			ReadOnly: false,
 		}
 		resp := pluginapi.ContainerAllocateResponse{
-			Envs: map[string]string{
-				"COLA_DEVICES": strings.Join(req.DevicesIDs, ","),
-			},
 			Mounts: mt,
 			Devices: ds,
 		}
