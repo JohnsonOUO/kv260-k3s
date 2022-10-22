@@ -195,7 +195,7 @@ func (s *ColaServer) Allocate(ctx context.Context, reqs *pluginapi.AllocateReque
 	resps := &pluginapi.AllocateResponse{}
 	for _, req := range reqs.ContainerRequests {
 		log.Infof("received request: %v", strings.Join(req.DevicesIDs, ","))
-		ds := make([]*pluginapi.DeviceSpec, 6)
+		ds := make([]*pluginapi.DeviceSpec, 8)
 		ds[0] = &pluginapi.DeviceSpec{
 			HostPath: "/dev/dri/card0",
 			ContainerPath: "/dev/dri/card0",
@@ -212,21 +212,31 @@ func (s *ColaServer) Allocate(ctx context.Context, reqs *pluginapi.AllocateReque
 			Permissions: "rwm",
 		}
 		ds[3] = &pluginapi.DeviceSpec{
-			HostPath: "/dev/dri/card0",
-			ContainerPath: "/dev/dri/card0",
+			HostPath: "/dev/dmaproxy",
+			ContainerPath: "/dev/dmaproxy",
 			Permissions: "rwm",
 		}
 		ds[4] = &pluginapi.DeviceSpec{
-			HostPath: "/dev/dma_heap",
-			ContainerPath: "/dev/dma_heap",
+			HostPath: "/dev/dma_heap/reserved",
+			ContainerPath: "/dev/dma_heap/reserved",
 			Permissions: "rwm",
 		}
 		ds[5] = &pluginapi.DeviceSpec{
+			HostPath: "/dev/dma_heap/system",
+			ContainerPath: "/dev/dma_heap/system",
+			Permissions: "rwm",
+		}
+		ds[6] = &pluginapi.DeviceSpec{
 			HostPath: "/dev/fpga0",
 			ContainerPath: "/dev/fpga0",
 			Permissions: "rwm",
 		}
-		mt := make([]*pluginapi.Mount, 1)
+		ds[7] = &pluginapi.DeviceSpec{
+			HostPath: "/dev/video0",
+			ContainerPath: "/dev/video0",
+			Permissions: "rwm",
+		}
+		mt := make([]*pluginapi.Mount, 8)
 		mt[0] = &pluginapi.Mount{
 			HostPath: "/dev/dri/card0",
 			ContainerPath: "/dev/dri/card0",
@@ -243,18 +253,28 @@ func (s *ColaServer) Allocate(ctx context.Context, reqs *pluginapi.AllocateReque
 			ReadOnly: false,
 		}
 		mt[3] = &pluginapi.Mount{
-			HostPath: "/dev/dri/card0",
-			ContainerPath: "/dev/dri/card0",
+			HostPath: "/dev/dmaproxy",
+			ContainerPath: "/dev/dmaproxy",
 			ReadOnly: false,
 		}
 		mt[4] = &pluginapi.Mount{
-			HostPath: "/dev/dma_heap",
-			ContainerPath: "/dev/dma_heap",
+			HostPath: "/dev/dma_heap/reserved",
+			ContainerPath: "/dev/dma_heap/reserved",
 			ReadOnly: false,
 		}
 		mt[5] = &pluginapi.Mount{
+			HostPath: "/dev/dma_heap/system",
+			ContainerPath: "/dev/dma_heap/system",
+			ReadOnly: false,
+		}
+		mt[6] = &pluginapi.Mount{
 			HostPath: "/dev/fpga0",
 			ContainerPath: "/dev/fpga0",
+			ReadOnly: false,
+		}
+		mt[7] = &pluginapi.Mount{
+			HostPath: "/dev/video0",
+			ContainerPath: "/dev/video0",
 			ReadOnly: false,
 		}
 		resp := pluginapi.ContainerAllocateResponse{
