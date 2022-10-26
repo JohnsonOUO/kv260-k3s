@@ -8,6 +8,7 @@ spec:
   containers:
   - name: kv260-runtime
     image: xilinx/kria-runtime:2022.1
+    imagesPullPolicy: IfNotPresent
     volumeMounts:
     - mountPath: /opt
       name: video
