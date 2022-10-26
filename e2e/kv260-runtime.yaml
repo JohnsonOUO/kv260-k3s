@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kv260-runtime
+  labels:
+    name: kv260
+spec:
+  containers:
+  - name: kv260-runtime
+    image: xilinx/kria-runtime:2022.1
+    resources:
+      requests:
+        memory: "128Mi"
+        cpu: "500m"
+        myway5.com/cola: 1
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+        myway5.com/cola: 1
+  nodeSelector: 
+    id: worker
+  command: ["/bin/bash", "-ce", "tail -f /dev/null"]
