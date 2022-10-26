@@ -8,6 +8,9 @@ spec:
   containers:
   - name: kv260-runtime
     image: xilinx/kria-runtime:2022.1
+    volumeMounts:
+    - mountPath: /opt
+      name: video
     resources:
       requests:
         memory: "128Mi"
@@ -17,6 +20,12 @@ spec:
         memory: "128Mi"
         cpu: "500m"
         myway5.com/cola: 1
+    command: ["/bin/bash", "-ce", "tail -f /dev/null"]
+
   nodeSelector: 
     id: worker
-  command: ["/bin/bash", "-ce", "tail -f /dev/null"]
+  volumes:
+  - name: video
+    hostPath:
+      path: /opt
+      type: Directory
