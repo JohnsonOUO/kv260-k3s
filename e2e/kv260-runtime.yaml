@@ -12,6 +12,8 @@ spec:
     volumeMounts:
     - mountPath: /opt
       name: video
+    - mountPath: /tmp
+      name: dfx
     resources:
       requests:
         memory: "128Mi"
@@ -29,4 +31,8 @@ spec:
   - name: video
     hostPath:
       path: /opt
+      type: Directory
+  - name: dfx
+    hostPath:
+      path: /tmp
       type: Directory
