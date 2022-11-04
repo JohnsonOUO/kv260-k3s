@@ -30,7 +30,7 @@ spec:
       containers:
         - name: cola
           securityContext: {}
-          image: "chriskewis/kv260-device-plugin:arm64"
+          image: "chriskewis/kv260-device-plugin:1103"
           imagePullPolicy: IfNotPresent
           resources: {}
           volumeMounts:
