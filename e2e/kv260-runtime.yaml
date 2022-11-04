@@ -7,7 +7,7 @@ metadata:
 spec:
   containers:
   - name: kv260-runtime
-    image: xilinx/kria-runtime:2022.1
+    image: chriskewis/xmutil
     imagePullPolicy: IfNotPresent
     volumeMounts:
     - mountPath: /opt
