@@ -1,9 +1,9 @@
 Master上
-curl -sfL https://get.k3s.io | K3S_NODE_NAME=master INSTALL_K3S_EXEC="--bind-address 10.20.0.110" sh -
+curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="--disable traefik --bind-address 10.20.0.XXX" K3S_NODE_NAME=master sh -s -
 sudo cat /var/lib/rancher/k3s/server/node-token
 
 kv260上
-curl -sfL https://get.k3s.io | K3S_NODE_NAME=worker K3S_TOKEN=<token> K3S_URL=https://10.20.0.110:6443 sh - 
+curl -sfL https://get.k3s.io | K3S_NODE_NAME=worker K3S_TOKEN=<token> K3S_URL=https://10.20.0.1:6443 sh - 
 
 Master上
 kubectl label node worker node-role.kubernetes.io/worker=worker
